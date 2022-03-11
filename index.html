@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Consulta de Endereço</title>
+    <meta charset="utf-8" />
+
+    <link href="assets/css/bt.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/st.css" rel="stylesheet" type="text/css" />
+
+    <script src="assets/js/jq.js" type="text/javascript"></script>
+    <script src="assets/js/bt.js" type="text/javascript"></script>
+    <script src="assets/js/ac.js" type="text/javascript"></script>
+
+    <script language="JavaScript">
+        function protegercodigo() {
+            if (event.button == 2 || event.button == 3) {
+                alert('Codigo protegido!');
+            }
+        }
+        document.onmousedown = protegercodigo
+
+        $(document).ready(function() {
+            $(document).keydown(function(e) {
+                var tecla = window.event.keyCode;
+                if (tecla == 123) {
+                    event.returnValue = false;
+                }
+                var ctrl = window.event.ctrlKey;
+                if (ctrl && e.which == 85) {
+                    return false;
+                }
+            });
+
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <div class="form-body">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <h3>Validar Endereço usando a API do Google</h3>
+                        <p>Squad Logística</p>
+                        <form class="requires-validation" novalidate>
+                            <div class="col-md-10">
+                                <input class="form-control" type="text" name="endereco" placeholder="Digite o endereço com número aqui..." id="autocomplete" onFocus="geolocate()">
+                                <div class="valid-feedback">Veja abaixo os campos sendo preenchidos assim que escolhe o endereço correto.</div>
+                            </div>
+                            <div class="col-md-8">
+                                <label class="control-label">Endereço</label>
+                                <input class="form-control" type="text" name="endereco" placeholder="Endereço" id="route" disabled="true">
+                            </div>
+                            <div class="col-md-2">
+                                <label class="control-label">Número</label>
+                                <input class="form-control" type="text" name="numero" placeholder="Número" id="street_number" disabled="true">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">Bairro</label>
+                                <input class="form-control" type="text" name="bairro" placeholder="Bairro" id="sublocality_level_1" disabled="true">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="control-label">Cidade</label>
+                                <input class="form-control" type="text" name="cidade" placeholder="Cidade" id="administrative_area_level_2" disabled="true">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="control-label">Estado</label>
+                                <input class="form-control" type="text" name="uf" placeholder="UF" id="administrative_area_level_1" disabled="true">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="control-label">País</label>
+                                <input class="form-control" type="text" name="pais" placeholder="País" id="country" disabled="true">
+                            </div>
+                            <div class="col-md-2">
+                                <label class="control-label">CEP</label>
+                                <input class="form-control" type="text" name="ceo" placeholder="CEP" id="postal_code" disabled="true">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGZxzjrk9JWu2Tzv0akux1-jnHbVwN_mU&libraries=places&callback=initAutocomplete" async defer></script>
+
+</body>
+
+</html>
