@@ -5,4 +5,4 @@ Api de validação de Endereço do Google - Recurso Places
 Com esta API vc consegue consultar e validar o endereço da base de dados do google, tanto pelo endereço quanto pelo cep
 
 ## Tela de uso
-<img src="./assets/img/api-google.jpg">
+<img src="./assets/img/api-google.JPG">
